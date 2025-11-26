@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hololive Fan Club</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0eaff 0%, #f7f7ff 100%);
+            animation: fadeInBody 1s ease;
+        }
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #wrap {
+            display: flex;
+            flex-direction: row;
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            overflow: hidden;
+            animation: fadeInWrap 1.2s ease;
+        }
+        @keyframes fadeInWrap {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #kiri {
+            width: 240px;
+            background: #f7f7ff;
+            padding: 32px 16px;
+            border-right: 2px solid #e0eaff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInSidebar 1.5s ease;
+        }
+        @keyframes fadeInSidebar {
+            from { transform: translateX(-40px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        #main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        #header {
+            position: relative;
+            width: 100%;
+            min-height: 220px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 0;
+        }
+        #header img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            animation: fadeInHeader 1.2s ease;
+        }
+        @keyframes fadeInHeader {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #judul {
+            font-size: 38px;
+            color: #1da1f2;
+            font-weight: bold;
+            margin-top: -40px;
+            text-shadow: 0 2px 8px #fff;
+            animation: fadeInTitle 1.5s ease;
+        }
+        @keyframes fadeInTitle {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .desc {
+            width: 90%;
+            margin: 0 auto 24px auto;
+            position: relative;
+        }
+        .desc .desc-bg {
+            background: url('amongus.jpg') center/cover no-repeat;
+            width: 100%;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            font-family: 'Trebuchet MS', 'Comic Sans MS', cursive, sans-serif;
+            font-weight: bold;
+            text-shadow: 1px 1px 8px #333;
+            animation: fadeInDesc 1.8s ease;
+        }
+        @keyframes fadeInDesc {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #menu {
+            width: 100%;
+            background: #1da1f2;
+            padding: 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            animation: fadeInMenu 1.2s ease;
+        }
+        #menu ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #menu ul li {
+            position: relative;
+        }
+        #menu ul li a {
+            display: block;
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.2s, color 0.2s;
+        }
+        #menu ul li a:hover {
+            background: #005fa3;
+            color: #ffd700;
+        }
+        #menu ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1da1f2;
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 100;
+        }
+        #menu ul li:hover ul {
+            display: block;
+        }
+        #menu ul li ul li a {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #konten {
+            width: 100%;
+            background: #fff;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 0 auto;
+            padding: 32px 32px 24px 32px;
+            animation: fadeInContent 1.5s ease;
+        }
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .posttitle {
+            font-size: 28px;
+            color: #1da1f2;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+            animation: fadeInPostTitle 1.7s ease;
+        }
+        @keyframes fadeInPostTitle {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .post {
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            animation: fadeInPost 2s ease;
+        }
+        @keyframes fadeInPost {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .gallery-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .gallery-row img {
+            width: 160px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            animation: fadeInGallery 2.2s ease;
+        }
+        .gallery-row img:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 24px rgba(30,161,242,0.18);
+        }
+        @keyframes fadeInGallery {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #footer {
+            clear: both;
+            background: #1da1f2;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 16px;
+            border-top-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            margin-top: 0;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+            animation: fadeInFooter 2.5s ease;
+        }
+        @keyframes fadeInFooter {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="kiri">
+            <div style="text-align:center; margin-bottom:10px;">
+                <img src="Logo.png" alt="Hololive Logo" style="width:100px; height:100px; object-fit:contain; display:inline-block; animation: fadeInLogo 1.5s ease;">
+            </div>
+            <h2 style="color:#1da1f2; font-size:22px; margin-bottom:18px;">Popular Articles</h2>
+            <ul style="width:100%;">
+                <li><a href="#">About Hololive</a></li>
+                <li><a href="#">VTuber Members</a></li>
+                <li><a href="#">Concerts</a></li>
+                <li><a href="#">Fan Events</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <div id="header">
+                <img src="amongus.jpg" alt="Hololive Fan Club Banner">
+                <div id="judul">
+                    <a href="#">Hololive Fan Club</a>
+                </div>
+                <div class="desc">
+                    <div class="desc-bg">
+                        The official fan club for Hololive production and VTuber fans
+                    </div>
+                </div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="members.html">MEMBERS</a>
+                        <ul>
+                            <li><a href="members.html#jp">JP</a></li>
+                            <li><a href="members.html#en">EN</a></li>
+                            <li><a href="members.html#id">ID</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">EVENTS</a></li>
+                    <li><a href="#">GALLERY</a>
+                        <ul>
+                            <li><a href="#">CONCERTS</a></li>
+                            <li><a href="#">FAN ART</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+            <div id="konten">
+                <div class="posttitle">Welcome to Hololive Fan Club</div>
+                <div class="post">
+                    <p style="max-width:600px;margin:0 auto;">
+                        Join the official fan club for Hololive production! Stay updated with the latest news, events, and content from your favorite VTubers. Explore concert highlights, member profiles, and fan creations.
+                    </p>
+                </div>
+                <div class="posttitle">Gallery</div>
+                <div class="post">
+                    <div class="gallery-row">
+                        <img src="Header.png" alt="Hololive Fan Club Banner">
+                        <img src="Logo.png" alt="Hololive Production Logo">
+                        <img src="Content.png" alt="Hololive Concert">
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                &copy; 2025 Hololive Fan Club. All Rights Reserved<br>
+                This is a fan-made site for Hololive production and VTuber fans.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

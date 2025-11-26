@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Kalimat - jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .highlight { background: yellow; font-weight: bold; }
+        .kalimat { margin-bottom: 10px; }
+        .btn { padding: 8px 16px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h2>Highlight Kalimat dengan jQuery</h2>
+    <div class="kalimat">Ini adalah kalimat pertama.</div>
+    <div class="kalimat">Kalimat kedua akan di-highlight.</div>
+    <div class="kalimat">Kalimat ketiga juga bisa di-highlight.</div>
+    <button class="btn" id="highlightBtn">Highlight Kalimat</button>
+    <script>
+        $(document).ready(function(){
+            $('#highlightBtn').click(function(){
+                // Highlight all kalimat
+                $('.kalimat').addClass('highlight');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Digital Clock</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        #jam { font-size: 2em; margin-bottom: 20px; text-align: center; }
+        #start { padding: 8px 16px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        #start:hover { background: #0056b3; }
+        center { display: block; }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="jam">Placeholder Jam</div>
+        <button id="start">START/STOP</button>
+    </center>
+    <script>
+        var interval = null;
+        function pad(num) {
+            return num < 10 ? '0' + num : num;
+        }
+        function showTime() {
+            var now = new Date();
+            var hari = now.toLocaleDateString('id-ID', { weekday: 'long' });
+            var tanggal = now.getDate();
+            var bulan = now.toLocaleDateString('id-ID', { month: 'long' });
+            var tahun = now.getFullYear();
+            var jam = pad(now.getHours());
+            var menit = pad(now.getMinutes());
+            var detik = pad(now.getSeconds());
+            var tanggalStr = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun;
+            var waktuStr = jam + ':' + menit + ':' + detik;
+            $('#jam').html(tanggalStr + '<br>' + waktuStr);
+        }
+        $(document).ready(function(){
+            var running = false;
+            $('#start').click(function(){
+                if (!running) {
+                    showTime();
+                    interval = setInterval(showTime, 1000);
+                    running = true;
+                } else {
+                    clearInterval(interval);
+                    running = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
